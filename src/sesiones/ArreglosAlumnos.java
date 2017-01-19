@@ -30,7 +30,7 @@ public class ArreglosAlumnos {  //refactor cambiar todo el nombre
     }
     
     public void imprimirArreglo() {
-        for (int i = 1; i < contador; i++) {
+        for (int i = 0; i < contador; i++) {
             
             System.out.println("Nombre " + (i+1) + " " + alumnos[i]);
         }
