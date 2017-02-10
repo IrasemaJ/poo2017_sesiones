@@ -16,8 +16,8 @@ public class FabricaCompus {
         
         System.out.println("Estoy ensamblando el Hardware");
         System.out.println("RAM:" + ac.getCapcidadRam());
-        System.out.println("HHD" + ac.getCapacidadDisco());
-        System.out.println("Procesador" + ac.getVelProcesadorGhz());
+        System.out.println("HHD:" + ac.getCapacidadDisco());
+        System.out.println("Procesador:" + ac.getVelProcesadorGhz());
     }
     
     public void instalarSoft(){
@@ -35,7 +35,7 @@ public class FabricaCompus {
         System.out.println("Empaquetando computadora");
     }
     
-    public Computadora crearComputadora(int capacidadDisco, int capacRam, int procesador){
+    public Computadora crearComputadora(int capacidadDisco, int capacRam, float procesador){
         
         ac = new Computadora();
         ac.setCapacidadDisco(capacidadDisco);
@@ -54,7 +54,7 @@ public class FabricaCompus {
         FabricaCompus f;
         f = new FabricaCompus();
         
-        f.crearComputadora(1000, 16, 2);
+        f.crearComputadora(1000, 16, 2.9f);
     }
 }
 
