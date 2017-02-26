@@ -13,6 +13,7 @@ public class ArbolDecision {
     
     private Node root = null;
     private Node temp = null;
+    private Node a = null;
 
     public void insert(int value){
         //caso base
@@ -27,6 +28,8 @@ public class ArbolDecision {
             root.setValue(value);
             
             temp = root;
+            a = temp;
+            
         }
         else{
             
@@ -70,6 +73,43 @@ public class ArbolDecision {
             root.print();
         }
     }
+    
+    public void find(int value){
+        if (value == root.getValue()) {
+            System.out.println("El numero " + value + " si esta.");
+
+        }
+        if (value > a.getValue()) { //si es mayor
+            a = a.right;
+            
+            if (a == null) {
+                   System.out.println("El numero " + value + " no esta");
+
+            }
+            if (value == a.getValue()) {
+                System.out.println("El numero " + value + " si esta.");
+
+            }
+            else{
+                find(value);
+            }
+            
+        }
+        if (value < a.getValue()) { //si es menor
+            a = a.left;
+            
+            if (a == null) {
+               System.out.println("El numero " + value + " no esta"); 
+
+            }
+            if (value == a.getValue()) {
+                System.out.println("El numero " + value + " si esta.");
+            }
+            else{
+                find(value);
+            }
+        }
+    }
 
     public static void main(String[] args) {
 
@@ -81,7 +121,7 @@ public class ArbolDecision {
         dt.insert(9);
         dt.insert(3);
         dt.insert(2);
-        dt.printtree();
+        dt.find(18);
     }
     
 }
