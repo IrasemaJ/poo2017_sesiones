@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package Recursividad;
+import java.util.Scanner;
 
 /**
  *
@@ -11,7 +12,21 @@ package Recursividad;
  */
 public class Arrays {
     
-    private int[] container = {1,2,3,4,5,6};
+    private int[] container;
+    private int size;
+    
+    public Arrays(int size){
+        
+        this.size = size;
+        container = new int[size];
+        
+        Scanner s;  //instancia de scaner
+        s = new Scanner(System.in); // sistema. entrada
+        for (int i = 0; i < size; i++) {
+            container[i] = s.nextInt(); // lo guarda en
+        }
+
+    }
     
     public int find(int value, int i){
         
@@ -34,29 +49,69 @@ public class Arrays {
         if(i == f){
             return -1;
         }
+        int temp = f/2;  //se divide a la mitad (no redondea)
+        if(container[temp] > val){
+            return binarySearch(i, temp, val);
+        }
+        else{
+            return binarySearch(temp, f, val);
+        }
+    }
+    
+    int binarySearch2(int i, int f, int val){
+
+        if(container[i] == val){
+
+            return i;
+        }
+        if(i == f){
+
+            return -1;
+        }
         if(f == val){
+
             return f;
         }
         int temp = f/2;  //se divide a la mitad (no redondea)
         if(container[temp] > val){
-            return binarySearch(++i, temp, val);
+            
+            return binarySearch2(++i, temp, val);
         }
         if(container[temp] == val){
+
             return temp;
         }
         else{
-            return binarySearch(temp+1, f, val);
+
+            return binarySearch2(temp+1, f, val);
         }
+
     }
     
+    int binarySearch3(int i, int f, int val){
+        
+        if(container[i] == val){
+            return i;
+        }
+        if(i == f){
+            return -1;
+        }
+        int temp = (f + i)/2;  //se divide a la mitad (no redondea)
+        if(container[temp] > val){
+            return binarySearch3(i, temp, val);
+        }
+        else{
+            return binarySearch3(temp, f, val);
+        }
+    }    
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        Arrays a = new Arrays();
-        int pos = a.binarySearch(0, 6, 6);
-        System.out.println("El numero esta en la posicion: " + pos);
+        Arrays a = new Arrays(10);
+        int pos = a.binarySearch2(0, 9, 6);
+        System.out.println("El numero esta en la posicion: " + pos);  
     }
 }

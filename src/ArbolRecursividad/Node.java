@@ -12,8 +12,8 @@ package ArbolRecursividad;
 public class Node {
     
     private int value;
-    private Node left;
-    private Node right;
+    public Node left;
+    public Node right;
 
     public int getValue() {
         return value;
