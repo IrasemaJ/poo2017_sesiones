@@ -14,6 +14,15 @@ public class Node {
     private int value;
     public Node left;
     public Node right;
+    public Node cambio;
+
+    public Node getCambio() {
+        return cambio;
+    }
+
+    public void setCambio(Node cambio) {
+        this.cambio = cambio;
+    }
 
     public int getValue() {
         return value;

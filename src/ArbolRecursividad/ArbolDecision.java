@@ -14,6 +14,7 @@ public class ArbolDecision {
     private Node root = null;
     private Node temp = null;
     private Node a = null;
+    private Node cambio = null;
 
     public void insert(int value){
         //caso base
@@ -110,6 +111,88 @@ public class ArbolDecision {
             }
         }
     }
+    
+    public int find2(int value, int cont){
+        
+        if (cont == 0) {
+            temp = root;
+            cont++;
+        }
+        if (temp == null) {
+            return -1;
+            
+        }
+        if (value == temp.getValue()) {
+            return value;
+        }
+        if (value < temp.getValue()) {
+            temp = temp.left;
+            if (temp.left == null) {
+                return -1;
+            }
+        } 
+        else{
+            temp = temp.right;
+            if (temp.right == null) {
+                return-1;
+            }
+        }
+        return find2(value, 1);    
+    }
+    
+
+    public void inOrder(int cont){
+        if (cont == 0) {
+            temp = root;
+            cont++;
+        }
+        if (temp == null) {
+            System.out.println("El arbol esta vacio");
+            return;
+        }
+        if (temp.left != null) {
+            temp = temp.left;
+        }
+        else{
+            return;//hace que ignore inOrder(1);
+        }
+        inOrder(1);
+        System.out.println(temp.getValue());
+        temp = temp.right;
+        inOrder(1);
+        
+    }
+    
+    public void inOrder2(int cont){
+        if (cont == 0) {
+            temp = root;
+            cont++;
+        }
+        if (temp == null) {
+            System.out.println("El arbol esta vacio");
+            return;
+        } 
+        if (temp.left != null) {
+            
+            if (temp != cambio) {
+               cambio = temp; 
+               temp = temp.left;
+            }    
+        }
+        else{
+            return;
+        }
+        inOrder2(1);
+        System.out.println(temp.getValue());
+        if (temp.right != null) {
+                temp = temp.right;
+        }
+        else{
+            temp= cambio;
+        }
+        inOrder2(1);
+        
+    }
 
     public static void main(String[] args) {
 
@@ -121,7 +204,12 @@ public class ArbolDecision {
         dt.insert(9);
         dt.insert(3);
         dt.insert(2);
-        dt.find(18);
+        //dt.find(18);
+        //dt.inOrder(0);
+        dt.inOrder2(0);
+        
+        //int res = dt.find2(2, 0);
+        //System.out.println("resultado " + res);
     }
     
 }
