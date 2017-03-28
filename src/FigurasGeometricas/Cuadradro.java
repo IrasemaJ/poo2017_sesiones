@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package MecanismoTransp;
+package FigurasGeometricas;
 
 /**
  *
  * @author Itzel
  */
-public class Barco {
+public class Cuadradro extends Poligono{
     
 }

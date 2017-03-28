@@ -3,12 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package MecanismoTransp;
+package FigurasGeometricas;
 
 /**
  *
  * @author Itzel
  */
-public class Bicicleta {
+public class TrEscaleno extends Triangulo{
+    
+    
     
 }
