@@ -7,6 +7,7 @@ package InterfacesGraficas;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseListener;
 import javax.swing.Action;
 
 /**
@@ -18,6 +19,7 @@ public class CalCientifica extends javax.swing.JFrame {
     protected int value1;
     protected int value2;
     protected String operacion = "";
+    
     /**
      * Creates new form CalCientifica
      */
@@ -49,26 +51,28 @@ public class CalCientifica extends javax.swing.JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 texto.setText(texto.getText() + "2");
+                  
             }
         });
         suma.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                
                 if (operacion.equals("")){
-                    
+
                     getFirstValue();
                     operacion = suma.getActionCommand();
                 }
                 else{
                     getSecondValue();
-                    texto.setText("");
                     value1 = value1 + value2;
                     Integer i = new Integer(value1);
                     texto.setText(i.toString());
-                    operacion = suma.getActionCommand();
+                    operacion = "";
+
                 }
-            }
                 
+            }     
         });
         resta.addActionListener(new ActionListener() {
             @Override
@@ -118,6 +122,15 @@ public class CalCientifica extends javax.swing.JFrame {
                     resultado = value1 * value2;
                 }
                 texto.setText(resultado + ""); 
+                operacion = "";
+            }
+        });
+        borrar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                value1 = 0;
+                value2 = 0;
+                texto.setText("");
                 operacion = "";
             }
         });
@@ -234,7 +247,10 @@ public class CalCientifica extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void unoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_unoActionPerformed
+
+        texto.setText("");
         texto.setText(texto.getText() + "1");
+        
     }//GEN-LAST:event_unoActionPerformed
 
     /**
