@@ -15,6 +15,10 @@ public class Arrays {
     private int[] container;
     private int size;
     
+    public int getSize() {
+        return size;
+    }
+    
     public Arrays(int size){
         
         this.size = size;
@@ -110,8 +114,10 @@ public class Arrays {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        
         Arrays a = new Arrays(10);
-        int pos = a.binarySearch2(0, 9, 6);
-        System.out.println("El numero esta en la posicion: " + pos);  
+        int val = 7;
+        int pos = a.binarySearch(0, a.getSize(), val);
+        System.out.println("numero" + val + " esta en la posición " + pos);
     }
 }

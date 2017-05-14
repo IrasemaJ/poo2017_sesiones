@@ -28,7 +28,7 @@ public class BasicExcetion {
                 break; //rompe el while 
             }
             catch(InputMismatchException e){
-                
+                System.out.println("excepción atrapada");
             }
             catch(TypeMismatchException e){
                 System.out.println("Valor incorrecto");

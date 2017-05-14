@@ -17,6 +17,7 @@ public class DeetenerTiempo {
     public static void main(String[] args) {
         try {
             Thread.sleep(5000);
+            System.out.println("terminé ");
         } catch (InterruptedException ex) {
             Logger.getLogger(DeetenerTiempo.class.getName()).log(Level.SEVERE, null, ex);
         }
